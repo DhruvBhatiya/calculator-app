@@ -21,8 +21,9 @@
   .result {
     font-size: 24px;
     padding: 10px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
+    text-align: right;
   }
   
   .buttons {
@@ -38,6 +39,7 @@
     border-radius: 5px;
     background: #fff;
     cursor: pointer;
+    height: 48px;
   }
   
   button:hover {
@@ -57,3 +59,66 @@
     padding: 5px 0;
   }
   
+
+  /* .special-buttons button {
+  background: #f57c00;
+  color: #fff;
+}
+
+.special-buttons button:hover {
+  background: #fb8c00;
+}
+
+.special-buttons button:active {
+  background: #e65100;
+} */
+
+
+.hamburger {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.history-panel {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+.hamburger {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.history-panel, .memory-panel {
+  border-top: 2px solid #ffffff;
+}
+
+.panel {
+  border-top: 2px solid #ffffff;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.tab:hover {
+  color: white;
+}
