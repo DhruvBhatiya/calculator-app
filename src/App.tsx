@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { decrement, increment, reset } from "./redux/slices/counter";
+import Calculator from "./components/Calculator/Calculator";
 
 function App() {
+  const count = useAppSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
   return (
     <div className="App">
-      <header className="App-header">
+      <Calculator />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Count is {count}</h1>
+        <div>
+          <div>
+            <button onClick={() => dispatch(increment())}>Increment</button>
+          </div>
+          <div>
+            <button onClick={() => dispatch(decrement())}>Decrement</button>
+          </div>
+          <div>
+            <button onClick={() => dispatch(reset())}>Reset</button>
+          </div>
+        </div>
+      </header> */}
     </div>
   );
 }
