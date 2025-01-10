@@ -28,9 +28,24 @@ const Calculator = () => {
     localStorage.setItem("memory", JSON.stringify(memory));
   }, [memory]);
 
+  
   const handleInput = (value) => {
-    setInput(input + value);
+    // Prevent typing operators when the input is empty or zero
+    if (
+      (input === "" || input === "0") &&
+      ["+", "-", "*", "/"].includes(value)
+    ) {
+      return; // Do nothing
+    }
+  
+    // Replace the initial 0 with the typed number if the input is only 0
+    if (input === "0" && !["+", "-", "*", "/"].includes(value)) {
+      setInput(value);
+    } else {
+      setInput(input + value);
+    }
   };
+
 
   const calculateResult = () => {
     try {
@@ -99,6 +114,9 @@ const Calculator = () => {
     setMemory([]);
   };
 
+  console.log("input", input)
+
+
   return (
     <div className="calculator w-[400px] mx-auto mt-24 bg-black relative">
       <div className="display">
@@ -149,7 +167,7 @@ const Calculator = () => {
       </button>
 
       {/* Panel */}
-     {/* Panel */}
+     
 {isPanelOpen && (
   <div className="panel absolute bottom-0 left-0 right-0 bg-gray-800 text-white max-h-64 overflow-y-auto p-4 shadow-lg">
     {/* Close Icon */}
